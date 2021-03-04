@@ -338,7 +338,7 @@ article .button:hover {
 
 .horiz {
     position: absolute;
-    bottom: 100px;
+    top: 250px;
     left: 5%;
     width: 90%;
     border-top: 1px solid gray;
@@ -447,7 +447,7 @@ article .button:hover {
 .email-id.show {
   display: block;
   width: 350px;
-  left: -5px;
+  left: 15px;
 }
 .email-id p {
     color: green;
@@ -591,6 +591,13 @@ article .button:hover {
     .email-id {
         left: 20%;
     }
+    .horiz {
+        position: absolute;
+        top: 155px;
+        left: 5%;
+        width: 90%;
+        border-top: 1px solid gray;
+    }
     }
    
  
@@ -644,4 +651,5 @@ article .button:hover {
         justify-self: left;
     }
 }
+
 
