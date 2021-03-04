@@ -145,7 +145,7 @@ nav ul li a:hover {
      transform: translate(0);
      position: absolute;
      top: 0;
-     left: 15%;
+     left: -13px;
      z-index: 2;
      display: block;
      box-shadow: 2px 5px 1000em black;  
@@ -446,7 +446,8 @@ article .button:hover {
 }
 .email-id.show {
   display: block;
-
+  width: 350px;
+  left: -5px;
 }
 .email-id p {
     color: green;
