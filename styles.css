@@ -145,7 +145,7 @@ nav ul li a:hover {
      transform: translate(0);
      position: absolute;
      top: 0;
-     left: -13px;
+     width: 100%;
      z-index: 2;
      display: block;
      box-shadow: 2px 5px 1000em black;  
