@@ -28,18 +28,49 @@ span {
     display: grid;
     grid-gap: 20px;
     justify-content: center;
+    align-content: center;
     position: relative;
-    margin: auto;
+
 }
 nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: flex-start;
     overflow: hidden;
     padding: 20px 50px;
     
 }
-
+.nav-overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5);
+}
+.nav-overlay.show{
+    display: block;
+}
+.hamburgerX {
+    display: none;
+    color: #fff;
+    font-size: 25px;
+    border: transparent;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+}
+.hamburgerX.show{
+    display: block;
+    z-index: 2;
+}
 nav ul {
     list-style-type: none;
     color: #fff;
@@ -49,6 +80,8 @@ nav ul {
 }
 nav ul li {
     margin: 0 10px;
+    justify-items: center;
+    align-self: center;
 }
 nav ul li a {
     color: #fff;
@@ -71,6 +104,20 @@ nav ul li a:hover {
  }
  .hamburger:focus {
      outline: none;
+ }
+
+ .overlay {
+     position: fixed;
+     display: none;
+     width: 100%;
+     height: 100%;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     background-color: rgba(0,0,0,0.5);
+     z-index:1;
+    
  }
  /* header styling */
  
@@ -115,19 +162,24 @@ nav ul li a:hover {
  .bookmark-img {
      margin-left: 15px;
      cursor: pointer;
-     font-size: 10px;
  }
  .bookmark,
  .bookmark-subscribe{
      display: none;
-     z-index: 1;
  }
+ .bookmark-subscribe.show {
+      color: var(--dark-cyan);
+      position: absolute;
+      bottom: 0;
+      left: 12px;
+      display: block;
+}
+
  .header-a-holder1{
      align-self: center;
      justify-self: right;
  }
  .header-a-holder2{
-     align-self: center;
      position: relative;
  }
  /* modal- popup */
@@ -140,6 +192,7 @@ nav ul li a:hover {
      padding: 30px 20px;
      text-align: center;
      transform: translate(180%);
+     
  }
  .modal-popup.show {
      transform: translate(0);
@@ -234,6 +287,7 @@ nav ul li a:hover {
 }
 .mahogany {
     opacity: 0.3;
+    cursor: not-allowed;
 }
 .about h2 {
     display: inline-block;
@@ -279,7 +333,7 @@ article .button:hover {
  .about {
      background-color: #fff;
      border-radius: 10px;
-     width: 80%;
+     width: 95%;
      margin: 0 auto;
  }
 
@@ -341,6 +395,8 @@ article .button:hover {
     top: 250px;
     left: 5%;
     width: 90%;
+    padding: 0;
+    margin: 0;
     border-top: 1px solid gray;
 }
 .box-1,
@@ -351,6 +407,10 @@ article .button:hover {
     border-radius: 10px;
     padding: 20px;
     text-decoration: none;
+}
+.box-4 input[type="radio"],
+.box-4 {
+    cursor: not-allowed;
 }
 
  /*  pledge  -- modal nums */
@@ -428,8 +488,6 @@ article .button:hover {
 }
 /*   email popup       */
 .email-id {
-    width: 450px;
-    height: 200px;
     border-radius: 15px;
     background-color:rgb(235, 241, 239);
     box-shadow: 2px 2px 5px burlywood;
@@ -445,8 +503,8 @@ article .button:hover {
     margin: auto;
 }
 .email-id.show {
-  display: block;
-  width: 350px;
+  display: inline-block;
+  width: 70%;
   left: 15px;
 }
 .email-id p {
@@ -464,24 +522,25 @@ article .button:hover {
 
 
 
-
-
-
-
- @media(min-width: 760px){
+ @media(min-width: 1025px){
     nav {
-    background-image: url(./images/image-hero-desktop.jpg);
-    background-repeat: no-repeat;
-    background-position: center; 
-    min-height:25em; 
-    width: 1440px;
-    margin: 0 auto;
+        background: linear-gradient(rgba(0, 0, 0,0.3), rgba(0, 0, 0,0.2)), url(./images/image-hero-desktop.jpg);
+        background-repeat: no-repeat;
+        background-position: center; 
+        min-height:25em; 
+        width: 1440px;
+        margin: 0 auto;
+    }
+    .wrapper{
+        align-items: center;
+        justify-content: center;
     }
      header,
     .numbers,
     .about {
-        width: 50%;
-        margin: 0 auto;
+        width: 700px;
+        justify-content: center;
+        align-content: center;
     }
    
     header .bookmark {
@@ -601,12 +660,13 @@ article .button:hover {
     }
    
  
-@media(max-width: 759px){
+@media(max-width: 1024px){
     nav {
         background-image: url(./images/image-hero-mobile.jpg);
         background-repeat: no-repeat;
         min-height: 31.25em;
         padding: 20px;
+        background-size:cover;
     }
  
     .hamburger {
@@ -621,17 +681,18 @@ article .button:hover {
         top: 80px;
         background-color: #fff;
         font-size: 20px;
-        width: 90%;
+        width: 100%;
         right: 10%;
         align-items: left;
         justify-content: center;
-        transform: translateX(120%); 
+        transform: translateX(200%); 
         transition: transform 0.2s ease;
         border-radius: 10px;
     }
     
     nav ul.show {
         transform: translate(0);
+        z-index: 2;
     }
     nav ul li {
         margin: 15px;
@@ -645,11 +706,26 @@ article .button:hover {
     .hamburger {
         position: absolute;
         right: 0;
+        z-index: 2;
+    }
+    .header-a-holder1{
+        justify-self: center;
     }
    
     .header-a-holder2{
         justify-self: left;
     }
+    .horiz {
+        position: absolute;
+        top: 200px;
+        left: 5%;
+        width: 90%;
+        padding: 0;
+        margin: 0;
+        opacity: 0.5;
+        border-top: 1px solid gray;
+    }
+    
 }
 
 
